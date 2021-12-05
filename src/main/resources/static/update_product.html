@@ -67,16 +67,24 @@
 
 <form id="new_product_form">
     <center>
-    <div class="form-group">
-        <label for="GameName">遊戲名稱:</label>
-        <input type="text" id="game_name_text" aria-label="game_name_text">
-    </div>
-    <div class="form-group">
-        <label for="Price">價格:</label>
-        <input type="text" id="price_text">
-    </div>
-    <button class="btn btn-outline-success" type="button" id="add_button">修改</button>
-        </center>
+        <div class="form-group">
+            <label for="GameName">遊戲名稱:</label>
+            <input type="text" id="game_name_text" aria-label="game_name_text">
+        </div>
+        <div class="form-group">
+            <label for="ImageURL">圖片連結:</label>
+            <input type="text" id="image_url_text">
+        </div>
+        <div class="form-group">
+            <label for="Price">價格:</label>
+            <input type="text" id="price_text">
+        </div>
+        <div class="form-group">
+            <label for="Description">描述:</label>
+            <input type="text" id="description_text">
+        </div>
+        <button class="btn btn-outline-success" type="button" id="add_button">修改</button>
+    </center>
 </form>
 <!-- Optional JavaScript; choose one of the two! -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -107,7 +115,9 @@
 
             data: {
                 game_name : $('#game_name_text').val(),
+                img_url : $('#image_url_text').val(),
                 price : $('#price_text').val(),
+                description : $('#description_text').val()
             },
 
             // Whether this is a POST or GET request
@@ -118,7 +128,7 @@
         })
         .done(function( text ) {
             if(text == "Success")
-                alert("pass");
+                alert("已修改");
             else
                 alert("fail");
         })
